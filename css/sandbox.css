@@ -11,7 +11,7 @@
 		                  font-size: 100%;vertical-align: baseline;
 		                  background: transparent;}
 		body              {line-height: 1;}
-		ol, ul            {list-style: none;}
+		ol, ul          {list-style: none;}
 		blockquote, q     {quotes: none;}
 		blockquote:before, blockquote:after,
 		q:before, q:after {content: "";	content: none;}
@@ -21,8 +21,6 @@
 		table             {border-collapse: collapse;border-spacing: 0;}
 
 *, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   outline: none;
 }
@@ -85,7 +83,6 @@ section {
   background: #fff;
   width: 100%;
   padding: 1rem;
-  -webkit-box-shadow: rgba(0,0,0,.15) 0 15px 50px;
   box-shadow: rgba(0,0,0,.15) 0 15px 50px;
 }
 
@@ -120,7 +117,6 @@ section:after {
   background: #D3ACAC;
   outline: 0;
   background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
   box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
 }
 
@@ -212,11 +208,9 @@ section:after {
   width: 100%;
   height: 18.75rem;
   border: 1px solid #cdcdcd;
-  -webkit-box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
   box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
   border-radius: 3px;
   -webkit-transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
   appearance: none;
   -moz-appearance: none;
@@ -249,7 +243,6 @@ pre {
   border-radius: 3px;
   z-index: 30;
   -webkit-transition: all 0.5s ease-in;
-    -moz-transition: all 0.5s ease-in;
       transition: all 0.5s ease-in;
   opacity: 0.8;
 }
@@ -274,112 +267,17 @@ pre {
   z-index: -1;
 }
 
-#iframe:hover + #iframeLabel {
-  opacity: 0;
-  z-index: -1;
-}
-
-#iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.preview {
-  width: 100%;
-  position: relative;
-  appearance: none;
-  -webkit-appearance: none;
-  margin: 0.75em 0 0 0;
-  border: 1px solid #cdcdcd;
-  border-radius: 3px;
-  -webkit-box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
-  box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
-  height: 37.5rem;
-  top: 100%;
-/*  -webkit-transition-property: top;
-    -moz-transition-property: top;
-      transition-property: top;
-  -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-      transition-timing-function: ease-in-out;*/
-}
-
-html.modal-open .preview{
-  border: 1px solid #c7c7c7;
-  border-radius: 3px;
-  z-index: 1000;
-  position: fixed;
-  width: 98%;
-  height: 97%;
-  top: 1%;
-  left: 1%;
-  opacity: 1;
-  background: white;
-  overflow: hidden;
-}
-
-html.modal-open, html.modal-open body, html.modal-open section {
-    overflow: hidden;
-    height: 100%;
-}
-
-html.modal-open #iframeLabel {
-  display: none;
-}
-
-#iframeClose {
-  display: none;
-  background: #333;
-  color: #dadada;
-  border: 1px solid #dadada;
-  border-radius: 1.5625rem;
-  cursor: pointer;
-  position: fixed;
-  width: 1.5625rem;
-  height: 1.5625rem;
-  line-height: 1.25rem;
-  top: 0;
-  right: 2px;
-  opacity: 0;
-  text-align: center;
-}
-
-html.modal-open #iframeClose {
-  display: inline-block;
-  opacity: 0.8;
-}
-
-/*#iframeClose.modal-open:hover {
-  background: #333;
-  color: #dadada;
-  border: 1px solid #dadada;
-  border-radius: 25px;
-  width: 25px;
-  height: 25px;
-  line-height: 20px;
-  -webkit-transition: background 0.2s ease-in-out;
-    -moz-transition: background 0.2s ease-in-out;
-      transition: background 0.2s ease-in-out;
-  opacity: 1;
-}*/
-
 .console {
   width: 100%;
   margin: 0.75em 0 0 0;
   height: 100px;
   border: 1px solid #cdcdcd;
-  -webkit-box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
   box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
   border-radius: 3px;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
-/*  display: none;*/
 }
 
 /* jqconsole */
@@ -433,37 +331,22 @@ html.modal-open #iframeClose {
 
 /* jqconsole ANSI*/
 .jqconsole-ansi-bold {
-  font-weight: bold!important;
+  font-weight: bold;
 }
 
 .jqconsole-ansi-lighter {
-  font-weight: lighter!important;
+  font-weight: lighter;
 }
 
 .jqconsole-ansi-italic {
-  font-style: italic!important;
+  font-style: italic;
 }
 
 .jqconsole-ansi-underline {
-  text-decoration: underline!important;
+  text-decoration: underline;
 }
 
 @-webkit-keyframes blinker {
-  from { opacity: 1.0; }
-  to { opacity: 0.0; }
-}
-
-@-moz-keyframes blinker {
-  from { opacity: 1.0; }
-  to { opacity: 0.0; }
-}
-
-@-ms-keyframes blinker {
-  from { opacity: 1.0; }
-  to { opacity: 0.0; }
-}
-
-@-o-keyframes blinker {
   from { opacity: 1.0; }
   to { opacity: 0.0; }
 }
@@ -508,98 +391,66 @@ html.modal-open #iframeClose {
 
 
 .jqconsole-ansi-hidden {
-  visibility:hidden!important;
+  visibility:hidden;
 }
 
 .jqconsole-ansi-line-through {
   text-decoration: line-through;
 }
 
-.jqconsole-ansi-fonts-1 {
-
-}
-.jqconsole-ansi-fonts-2 {
-
-}
-.jqconsole-ansi-fonts-3 {
-
-}
-.jqconsole-ansi-fonts-4 {
-
-}
-.jqconsole-ansi-fonts-5 {
-
-}
-.jqconsole-ansi-fonts-6 {
-
-}
-.jqconsole-ansi-fonts-7 {
-
-}
-.jqconsole-ansi-fonts-8 {
-
-}
-.jqconsole-ansi-fonts-9 {
-
-}
-
-.jqconsole-ansi-fraktur {
-
-}
-
 .jqconsole-ansi-color-black {
-  color: black!important;
+  color: black;
 }
 .jqconsole-ansi-color-red {
-  color: red!important;
+  color: red;
 }
 .jqconsole-ansi-color-green {
-  color: green!important;
+  color: green;
 }
 .jqconsole-ansi-color-yellow {
-  color: yellow!important;
+  color: yellow;
 }
 .jqconsole-ansi-color-blue {
-  color: blue!important;
+  color: blue;
 }
 .jqconsole-ansi-color-magenta {
-  color: magenta!important;
+  color: magenta;
 }
 .jqconsole-ansi-color-cyan {
-  color: cyan!important;
+  color: cyan;
 }
 .jqconsole-ansi-color-white {
-  color: white!important;
+  color: white;
 }
 
 .jqconsole-ansi-background-color-black {
-  background-color: black!important;
+  background-color: black;
 }
 .jqconsole-ansi-background-color-red {
-  background-color: red!important;
+  background-color: red;
 }
 .jqconsole-ansi-background-color-green {
-  background-color: green!important;
+  background-color: green;
 }
 .jqconsole-ansi-background-color-yellow {
-  background-color: yellow!important;
+  background-color: yellow;
 }
 .jqconsole-ansi-background-color-blue {
-  background-color: blue!important;
+  background-color: blue;
 }
 .jqconsole-ansi-background-color-magenta {
-  background-color: magenta!important;
+  background-color: magenta;
 }
 .jqconsole-ansi-background-color-cyan {
-  background-color: cyan!important;
+  background-color: cyan;
 }
 .jqconsole-ansi-background-color-white {
-  background-color: white!important;
+  background-color: white;
 }
 
 .jqconsole-ansi-framed {
-  border: 1px solid!important;
+  border: 1px solid;
 }
 .jqconsole-ansi-overline {
-  text-decoration: overline!important;
+  text-decoration: overline;
 }
