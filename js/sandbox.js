@@ -18,9 +18,9 @@
   // ---
   // End Globals
 
-   // Check if a new appcache is available on page load. If so, ask to load it.
-  window.addEventListener("load", function(e) {
-    window.applicationCache.addEventListener("updateready", function(e) {
+  // Check if a new appcache is available on page load. If so, ask to load it.
+  window.addEventListener("load", function (e) {
+    window.applicationCache.addEventListener("updateready", function (e) {
       if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
         // Browser downloaded a new app cache.
         if (confirm("A new version of this site is available. Load it?")) {
@@ -90,7 +90,7 @@
           "body element. <script> tags ARE allowed, though\n" +
           "they're best placed at the end of your HTML -->\n");
         htmlField.clearSelection();
-        $(".html").one("touchstart click", function() {
+        $(".html").one("touchstart click", function () {
           htmlField.setValue("");
         });
       }
@@ -122,17 +122,17 @@
     jqconsole.SetIndentWidth(2);
 
     // Abort prompt on Ctrl+C.
-    jqconsole.RegisterShortcut("C", function() {
+    jqconsole.RegisterShortcut("C", function () {
       jqconsole.AbortPrompt();
       handler();
     });
     // Move to line start Ctrl+A.
-    jqconsole.RegisterShortcut("A", function() {
+    jqconsole.RegisterShortcut("A", function () {
       jqconsole.MoveToStart();
       handler();
     });
     // Move to line end Ctrl+E.
-    jqconsole.RegisterShortcut("E", function() {
+    jqconsole.RegisterShortcut("E", function () {
       jqconsole.MoveToEnd();
       handler();
     });
@@ -141,7 +141,7 @@
     jqconsole.RegisterMatching("[", "]", "bracket");
 
     // console.log implementation
-    window.log = function(message) {
+    window.log = function (message) {
       var data = "";
       if (typeof message == "object") {
         data = JSON && JSON.stringify ? JSON.stringify(message) : String(message);
@@ -152,7 +152,7 @@
     };
 
     // Handle a command.
-    var handler = function(command) {
+    var handler = function (command) {
       if (command) {
         if (command.search("console.log" !== -1)) {
           command = command.replace("console.log", "log");
@@ -163,7 +163,7 @@
           jqconsole.Write("ReferenceError: " + e.message + "\n");
         }
       }
-      jqconsole.Prompt(true, handler, function(command) {
+      jqconsole.Prompt(true, handler, function (command) {
         // Continue line if can't compile the command.
         try {
           new Function(command);
@@ -183,30 +183,30 @@
   // END jqconsole
 
   // Toggle Text Areas from Displaying
-  $(".togglePane").on("click", function() {
+  $(".togglePane").on("click", function () {
     panes.close(this);
   });
-  $("#consoleToggle").on("click", function() {
+  $("#consoleToggle").on("click", function () {
     $(this).toggleClass("btn-active");
     $(".console").toggle();
   });
-  $("#previewToggle, #iframeClose").on("click", function() {
+  $("#previewToggle, #iframeClose").on("click", function () {
     $("#previewToggle").toggleClass("btn-active");
     $("html").toggleClass("modal-open");
   });
 
   var panes = {
     // Return the number of editor panes displayed
-    count: function() {
+    count: function () {
       var count = 3;
       var items = $(".windowGroup .column-33");
-      items.each(function(el) {
+      items.each(function (el) {
         if ($(items[el]).css("display") === "none") count -= 1;
       });
       return count;
     },
     // Resize panes based upon number currently toggled ON
-    resize: function() {
+    resize: function () {
       var count = this.count();
       var win = $(".windowGroup .column-33");
       if (count === 3 || count === 0) {
@@ -218,7 +218,7 @@
       }
     },
     // On toggling an editor pane resize remaining and toggle button class
-    close: function(el) {
+    close: function (el) {
       var name = el.dataset.editor;
       var count = this.count();
       if (count > 1 || $(el).hasClass("btn-active")) {
@@ -248,7 +248,7 @@
         xmlHttp.open("GET", "http://rawgit.com/ai/autoprefixer-rails/master/vendor/autoprefixer.js", false);
         xmlHttp.send(null);
         var ap = document.createElement("script");
-        ap.type ="text/javascript";
+        ap.type = "text/javascript";
         ap.text = xmlHttp.responseText;
         document.getElementsByTagName("head")[0].appendChild(ap);
       })();
@@ -277,13 +277,13 @@
     html += '<head>\n';
     html += '<meta charset="UTF-8">\n';
     if (use.Normalize) {
-      html += '<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet">\n';
+      html += '<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" rel="stylesheet">\n';
     }
     if (use.Bootstrap) {
-      html += '<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">\n';
+      html += '<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">\n';
     }
     if (use.Foundation) {
-      html += '<link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/css/foundation.min.css" rel="stylesheet">\n';
+      html += '<link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.css" rel="stylesheet">\n';
     }
     if (use.Less) {
       html += '<style type="text/less">\n';
@@ -291,27 +291,29 @@
       html += '<style type="text/css">\n';
     }
     if (use.Autoprefixer) {
-      html += autoprefixer({ cascade: true }).process(content.style).css;
+      html += autoprefixer({
+        cascade: true
+      }).process(content.style).css;
     } else if (use.Sass) {
       html += Sass.compile(content.style);
     } else {
       html += content.style;
     }
     html += '\n</style>\n';
-    html += '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>\n';
+    html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>\n';
     if (use.Bootstrap) {
-      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>\n';
+      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>\n';
     }
     if (use.Foundation) {
-      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.2/js/foundation/foundation.min.js"></script>\n';
+      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.0/foundation.min.js"></script>\n';
     }
     if (use.Modernizr) {
-      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>\n';
+      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>\n';
     }
     if (use.Less) {
       // Set LESS global variable to turn errorReporting off and mode to production
       html += '<script>\nless={env: "production", errorReporting: null}\n</script>\n';
-      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>\n';
+      html += '<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>\n';
     }
     html += '</head>\n';
     html += '<body>\n';
@@ -330,22 +332,22 @@
   }
 
   // Toggle live edit/preview mode. It's sometimes slow or doesn't react well.
-  $("#liveEdit").on("click", function() {
-    use.liveEdit ? use.liveEdit = false:use.liveEdit = true;
+  $("#liveEdit").on("click", function () {
+    use.liveEdit ? use.liveEdit = false : use.liveEdit = true;
     $(this).toggleClass("btn-active");
   });
 
   // Publish output from HTML, CSS, and JS textareas in the iframe below
   // after given keyup delay if "use.liveEdit: true".
-  htmlField.getSession().on("change", function(e) {
+  htmlField.getSession().on("change", function (e) {
     if (use.liveEdit) preview(1000);
   });
-  cssField.getSession().on("change", function(e) {
+  cssField.getSession().on("change", function (e) {
     if (use.liveEdit) preview(2000);
   });
 
   // Update preview window AND js console on click of "Run" button
-  $("#run").on("click", function() {
+  $("#run").on("click", function () {
     preview();
   });
 
@@ -355,7 +357,7 @@
     if (timer) {
       window.clearTimeout(timer);
     }
-    timer = window.setTimeout(function() {
+    timer = window.setTimeout(function () {
       timer = null;
       // pass true as we want the pseudo console.js script
       //console.time('buildOutput'); // start timer for debugging
@@ -369,7 +371,7 @@
 
   // Download HTML/CSS/JS
   // Source: http://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/
-  $("#download").on("click", function() {
+  $("#download").on("click", function () {
 
     function destroyClickedElement(event) {
       document.body.removeChild(event.target);
@@ -379,7 +381,9 @@
 
     // pass false as we don't want the pseudo console.js script
     var textToWrite = buildOutput(false);
-    var textFileAsBlob = new Blob([textToWrite], {type: "text/plain"});
+    var textFileAsBlob = new Blob([textToWrite], {
+      type: "text/plain"
+    });
     var fileNameToSaveAs = "index.html";
 
     $download.download = fileNameToSaveAs;
@@ -392,13 +396,13 @@
       $download.href = window.URL.createObjectURL(textFileAsBlob);
     }
     $download.onclick = destroyClickedElement;
-		$download.style.display = "none";
-		document.body.appendChild($download);
+    $download.style.display = "none";
+    document.body.appendChild($download);
     $download.click();
   });
 
   // Clear editors with "Clear" button
-  $("#clear").on("click", function() {
+  $("#clear").on("click", function () {
     htmlField.setValue("");
     cssField.setValue("");
     jsField.setValue("");
@@ -408,7 +412,7 @@
   });
 
   // Save current editor panes to localStorage
-  $("#save").on("click", function() {
+  $("#save").on("click", function () {
     var store = {
       html: htmlField.getValue(),
       css: cssField.getValue(),
@@ -418,7 +422,7 @@
   });
 
   // Load into editors from localStorage if exists
-  $("#load").on("click", function() {
+  $("#load").on("click", function () {
     var store;
     if (localStorage.sandbox) {
       store = JSON.parse(localStorage.sandbox);
@@ -443,7 +447,7 @@
           "name": "CSS Options",
           "items": {
             "plaincss": {
-              "name":"Plain CSS [Default]",
+              "name": "Plain CSS [Default]",
               "type": "radio",
               "radio": "css",
               "value": "plaincss",
@@ -516,43 +520,43 @@
               "items": {
                 "chrome": {
                   "name": "Chrome [Default]",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("chrome");
                   }
                 },
                 "dreamweaver": {
                   "name": "Dreamweaver",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("dreamweaver");
                   }
                 },
                 "dawn": {
                   "name": "Dawn",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("dawn");
                   }
                 },
                 "tomorrow": {
                   "name": "Tomorow",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("tomorrow");
                   }
                 },
                 "xcode": {
                   "name": "XCode",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("xcode");
                   }
                 },
                 "kuroir": {
                   "name": "Kuroir",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("kuroir");
                   }
                 },
                 "katzenmilch": {
                   "name": "KatzenMilch",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("katzenmilch");
                   }
                 }
@@ -563,49 +567,49 @@
               "items": {
                 "ambiance": {
                   "name": "Ambiance",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("ambiance");
                   }
                 },
                 "cloudsmidnight": {
                   "name": "Clouds Midight",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("clouds_midnight");
                   }
                 },
                 "idlefingers": {
                   "name": "Idle Fingers",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("idle_fingers");
                   }
                 },
                 "merbivore": {
                   "name": "Merbivore",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("merbivore");
                   }
                 },
                 "merbivoresoft": {
                   "name": "Merbivore Soft",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("merbivore_soft");
                   }
                 },
                 "monokai": {
                   "name": "Monokai",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("monokai");
                   }
                 },
                 "tomorrownight": {
                   "name": "Tomorrow Night",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("tomorrow_night");
                   }
                 },
                 "twilight": {
                   "name": "Twilight",
-                  "callback": function() {
+                  "callback": function () {
                     updateTheme("twilight");
                   }
                 }
@@ -613,7 +617,7 @@
             },
             "default": {
               "name": "Default",
-              "callback": function() {
+              "callback": function () {
                 updateTheme("chrome");
               }
             }
@@ -621,7 +625,7 @@
         }
       },
       events: {
-        show: function(opt) {
+        show: function (opt) {
           // this is the trigger element
           var $this = this;
           // import states from data store IF set. If we don't check this
@@ -630,7 +634,7 @@
             $.contextMenu.setInputValues(opt, $this.data());
           }
         },
-        hide: function(opt) {
+        hide: function (opt) {
           // this is the trigger element
           var $this = this;
           // export states to data store
@@ -644,63 +648,63 @@
   // and update "global" variable "use" in order to build
   // preview window
   // $("input[name*='context-menu-input']").on("click", function() {
-  $(".context-menu-list").on("click", "input[name*='context-menu-input']", function() {
+  $(".context-menu-list").on("click", "input[name*='context-menu-input']", function () {
     var val = $(this).val();
     if (val) {
       switch (val) {
         // CSS Pre-Processor
-        case "plaincss":
-          $("#cssLabel").text("CSS");
-          cssField.getSession().setMode("ace/mode/css");
-          use.Autoprefixer = false;
-          use.Less = false;
-          use.Sass = false;
-          break;
-        case "autoprefixer":
-          $("#cssLabel").text("CSS");
-          cssField.getSession().setMode("ace/mode/css");
-          use.Autoprefixer = true;
-          use.Less = false;
-          use.Sass = false;
-          break;
-        case "less":
-          $("#cssLabel").text("LESS");
-          cssField.getSession().setMode("ace/mode/less");
-          use.Less = true;
-          use.Sass = false;
-          use.Autoprefixer = false;
-          break;
-        case "sass":
-          $("#cssLabel").text("SASS");
-          cssField.getSession().setMode("ace/mode/sass");
-          use.Sass = true;
-          use.Less = false;
-          use.Autoprefixer = false;
-          break;
+      case "plaincss":
+        $("#cssLabel").text("CSS");
+        cssField.getSession().setMode("ace/mode/css");
+        use.Autoprefixer = false;
+        use.Less = false;
+        use.Sass = false;
+        break;
+      case "autoprefixer":
+        $("#cssLabel").text("CSS");
+        cssField.getSession().setMode("ace/mode/css");
+        use.Autoprefixer = true;
+        use.Less = false;
+        use.Sass = false;
+        break;
+      case "less":
+        $("#cssLabel").text("LESS");
+        cssField.getSession().setMode("ace/mode/less");
+        use.Less = true;
+        use.Sass = false;
+        use.Autoprefixer = false;
+        break;
+      case "sass":
+        $("#cssLabel").text("SASS");
+        cssField.getSession().setMode("ace/mode/sass");
+        use.Sass = true;
+        use.Less = false;
+        use.Autoprefixer = false;
+        break;
         // CSS Frameworks
-        case "none":
-          use.Bootstrap = false;
-          use.Foundation = false;
-          break;
-        case "bootstrap":
-          use.Bootstrap = true;
-          use.Foundation = false;
-          break;
-        case "foundation":
-          use.Foundation = true;
-          use.Bootstrap = false;
-          break;
+      case "none":
+        use.Bootstrap = false;
+        use.Foundation = false;
+        break;
+      case "bootstrap":
+        use.Bootstrap = true;
+        use.Foundation = false;
+        break;
+      case "foundation":
+        use.Foundation = true;
+        use.Bootstrap = false;
+        break;
       }
     } else {
       var checked = $(this).is(":checked");
       var item = event.target.name; //$(this)[0].name;
       switch (item) {
-        case "context-menu-input-modernizr":
-          use.Modernizr = checked;
-          break;
-        case "context-menu-input-normalize":
-          use.Normalize = checked;
-          break;
+      case "context-menu-input-modernizr":
+        use.Modernizr = checked;
+        break;
+      case "context-menu-input-normalize":
+        use.Normalize = checked;
+        break;
       }
     }
   });
@@ -711,13 +715,7 @@
     htmlField.setTheme(theme);
     cssField.setTheme(theme);
     jsField.setTheme(theme);
-    // Uncomment below if you want the page/body background to follow the set theme colour.
-    // we delay obtaining the css colour by 1s as it takes a moment to propagate
-    /*
-    setTimeout(function() {
-      $("body, section").css("background-color", $("#html").css("background-color"));
-    }, 1000);
-    */
+    
     localStorage.setItem("theme", theme);
   }
 

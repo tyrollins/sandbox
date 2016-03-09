@@ -44,9 +44,3 @@ Temporary Items
 
 # sftp configuration file
 sftp-config.json
-
-
-### CoffeeScript ###
-*.js
-
-### gitignore ###
