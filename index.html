@@ -11,26 +11,10 @@
 
   <body>
     <section>
-      <div class="row btnGroup">
-        <div class="column-33 toggleGroup">
-          <button class="btn togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</button>
-          <button class="btn togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</button>
-          <button class="btn togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</button>
-          <button class="btn" id="consoleToggle" title="Toggle JavaScript Console">Console</button>
-          <button class="btn btn-active" id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</button>
-        </div>
-        <div class="column-33">
-          <h1>Sandbox - Web Editor</h1>
-        </div>
-        <div class="column-33 btnGroup last">
-          <button class="btn" id="previewToggle" title="Enlarge Preview">Preview</button>
-          <button class="btn" id="clear" title="Click to clear all panes">Clear</button>
-          <button class="btn" id="download" title="Download to computer">Download</button>
-          <button class="btn" id="save" title="Save to localStorage">Save</button>
-          <button class="btn" id="load" title="Load from localStorage">Load</button>
-          <button class="btn" id="run" title="Run...">Run</button>
-        </div>
+      <div class="iframe">
+        <iframe id="iframe" name="sandbox" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true"></iframe>
       </div>
+
       <div class="row windowGroup">
         <div class="column-33">
           <div class="window html">
@@ -51,13 +35,33 @@
           </div>
         </div>
       </div>
+
+      <div class="row btnGroup">
+        <div class="column-33 toggleGroup">
+          <button class="btn togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</button>
+          <button class="btn togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</button>
+          <button class="btn togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</button>
+          <button class="btn" id="consoleToggle" title="Toggle JavaScript Console">Console</button>
+          <button class="btn btn-active" id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</button>
+        </div>
+        <div class="column-33">
+          <h1>Sandbox - Web Editor</h1>
+        </div>
+        <div class="column-33 btnGroup last">
+          <button class="btn" id="previewToggle" title="Enlarge Preview">Preview</button>
+          <button class="btn" id="clear" title="Click to clear all panes">Clear</button>
+          <button class="btn" id="download" title="Download to computer">Download</button>
+          <button class="btn" id="save" title="Save to localStorage">Save</button>
+          <button class="btn" id="load" title="Load from localStorage">Load</button>
+          <button class="btn" id="run" title="Run...">Run</button>
+        </div>
+      </div>
+
       <div class="row console">
         <pre id="console"></pre>
         <span class="windowLabel" id="consoleLabel">Console</span>
       </div>
-      <div class="iframe">
-        <iframe id="iframe" name="sandbox" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true"></iframe>
-      </div>
+
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script src="js/ace/ace.js"></script>
@@ -67,6 +71,7 @@
     <script src="js/contextMenu.js"></script>
     <script src="js/jqconsole.min.js"></script>
     <script src="js/sandbox.js"></script>
+    <script>$('.iframe').responsiveIframes();</script>
   </body>
 
 </html>

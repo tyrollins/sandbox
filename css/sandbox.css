@@ -4,13 +4,14 @@
 }
 
 .row {
-  margin: 0 -0.75em;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .row [class*="column-"] {
   margin: 0;
-  display: inline-block;
-  padding-left: 0.75em;
+  padding: 0;
   vertical-align: top;
 }
 
@@ -18,7 +19,7 @@
 .column-20  { width: 20%; }
 .column-25  { width: 25%; }
 .column-30  { width: 30%; }
-.column-33  { width: 33%; }
+.column-33  { width: 33.333%; }
 .column-40  { width: 40%; }
 .column-50  { width: 50%; }
 .column-60  { width: 60%; }
@@ -28,26 +29,19 @@
 .column-80  { width: 80%; }
 .column-100 { width: 100%; }
 .last { text-align: right; }
-/* End Responsive Grids */
 
-@media screen and (max-width: 640px) {
-  .windowGroup > .column-33 {
-    width: 97%;
-    margin: 0.75em 0 0 0;
-  }
-}
-
-html, body, section {
-  height:auto;
+html {
+  height: 100%;
+  width: 100%;
 }
 
 body {
+
   background: #eaeaea;
-  font-family: "Clear Sans";
+  font-family: "Input Sans", sans-serif;
   font-size: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-/* -webkit-font-smoothing: subpixel-antialiased; */
 }
 
 h1 {
@@ -266,7 +260,7 @@ pre {
 .jqconsole {
   padding: 10px;
   padding-bottom: 10px;
-  font-family: Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
+  font-family: "Input Mono", Monaco, Menlo, 'Ubuntu Mono', Consolas, source-code-pro, monospace;
   font-size: 12px;
 }
 .jqconsole-cursor {
@@ -431,4 +425,98 @@ pre {
 }
 .jqconsole-ansi-overline {
   text-decoration: overline;
+}
+
+
+/* iframe */
+
+.iframe {
+  margin-bottom: 0px;
+  border: 2px solid #ccc;
+  overflow: hidden;
+  background: #fff;
+}
+
+.iframe iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  display: block;
+}
+
+.iframe-header {
+  /*display: none;*/
+}
+
+.js .iframe-header {
+  display: block;
+}
+
+.iframe-content {
+  height: 350px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.iframe-header a {
+  font-size: 15px;
+  color: white;
+  background: #3B4658;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 3px solid #131C28;
+}
+
+.iframe-header a:hover,
+.iframe-header a:focus {
+  background: #6A798E;
+}
+
+.iframe-full-screen .iframe-header {
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+}
+
+.iframe-full-screen .iframe-content {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+.iframe-full-screen .iframe-header a {
+  padding: 0;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border: 3px solid #131C28;
+}
+
+.iframe-full-screen body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.iframe-full-screen .iframe.iframe-active{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  border: none;
+}
+
+.iframe-full-screen .iframe iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: none;
 }

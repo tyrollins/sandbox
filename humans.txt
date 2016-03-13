@@ -13,4 +13,4 @@
          Last Update: 03.09.16 - Active Development
          Doctype: HTML5
          IDE: Atom Editor
-         Primary Language: JavaScript/jQuery
+         Primary Languages: JavaScript/jQuery/CSS
