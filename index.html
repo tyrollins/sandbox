@@ -5,8 +5,9 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
     <title>Sandbox - Web Editor</title>
-    <link href="css/sandbox.css" rel="stylesheet">
-    <link href="css/contextMenu.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/sandbox.css">
+    <link rel="stylesheet" href="css/contextMenu.css">
   </head>
 
   <body>
@@ -38,22 +39,22 @@
 
       <div class="row btnGroup">
         <div class="column-33 toggleGroup">
-          <button class="btn togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</button>
-          <button class="btn togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</button>
-          <button class="btn togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</button>
-          <button class="btn" id="consoleToggle" title="Toggle JavaScript Console">Console</button>
-          <button class="btn btn-active" id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</button>
+          <button class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</button>
+          <button class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</button>
+          <button class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</button>
+          <button id="consoleToggle" title="Toggle JavaScript Console">Console</button>
+          <button id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</button>
         </div>
         <div class="column-33">
           <h1>Sandbox - Web Editor</h1>
         </div>
         <div class="column-33 btnGroup last">
-          <button class="btn" id="previewToggle" title="Enlarge Preview">Preview</button>
-          <button class="btn" id="clear" title="Click to clear all panes">Clear</button>
-          <button class="btn" id="download" title="Download to computer">Download</button>
-          <button class="btn" id="save" title="Save to localStorage">Save</button>
-          <button class="btn" id="load" title="Load from localStorage">Load</button>
-          <button class="btn" id="run" title="Run...">Run</button>
+          <button id="previewToggle" title="Enlarge Preview">Preview</button>
+          <button id="clear" title="Click to clear all panes">Clear</button>
+          <button id="download" title="Download to computer">Download</button>
+          <button id="save" title="Save to localStorage">Save</button>
+          <button id="load" title="Load from localStorage">Load</button>
+          <button id="run" title="Run...">Run</button>
         </div>
       </div>
 
