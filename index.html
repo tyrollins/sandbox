@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
     <title>Sandbox - Web Editor</title>
+    <link rel="stylesheet" href="/open-iconic/font/css/open-iconic.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/sandbox.css">
     <link rel="stylesheet" href="css/contextMenu.css">
@@ -37,32 +38,36 @@
         </div>
       </div>
 
-      <div class="row btnGroup">
-        <div class="column-33 toggleGroup">
-          <button class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</button>
-          <button class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</button>
-          <button class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</button>
-          <button id="consoleToggle" title="Toggle JavaScript Console">Console</button>
-          <button id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</button>
-        </div>
-        <div class="column-33">
-          <h1>Sandbox - Web Editor</h1>
-        </div>
-        <div class="column-33 btnGroup last">
-          <button id="previewToggle" title="Enlarge Preview">Preview</button>
-          <button id="clear" title="Click to clear all panes">Clear</button>
-          <button id="download" title="Download to computer">Download</button>
-          <button id="save" title="Save to localStorage">Save</button>
-          <button id="load" title="Load from localStorage">Load</button>
-          <button id="run" title="Run...">Run</button>
+      <div id="dynamic_footer">
+        <div id="copyright">
+
+            <div class="toggleGroup">
+            <ul class="footer-list">
+              <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</li>
+              <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</li>
+              <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</li>
+              <li id="consoleToggle" title="Toggle JavaScript Console">Console</li>
+              <li id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</li>
+              <li id="previewToggle" title="Enlarge Preview">Preview</li>
+              <li id="clear" title="Click to clear all panes">Clear</li>
+              <li id="download" title="Download to computer">Download</li>
+              <li id="save" title="Save to localStorage">Save</li>
+              <li id="load" title="Load from localStorage">Load</li>
+              <li id="run" title="Run...">Run</li>
+              <li><span class="oi" data-glyph="chevron-top">h</span></li>
+            </ul>
+            </div>
         </div>
       </div>
-
-      <div class="row console">
-        <pre id="console"></pre>
-        <span class="windowLabel" id="consoleLabel">Console</span>
+      <div id="featured">
+        <h1>You might also like...</h1>
+        <div class="row console">
+          <pre id="console"></pre>
+          <span class="windowLabel" id="consoleLabel">Console</span>
+        </div>
       </div>
-
+      <div id="overlay">
+      </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script src="js/ace/ace.js"></script>
