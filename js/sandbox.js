@@ -291,9 +291,9 @@
       html += '<style type="text/css">\n';
     }
     if (use.Autoprefixer) {
-      html += autoprefixer({
+      html += autoprefixer.process(content.style, {
         cascade: true
-      }).process(content.style).css;
+      }).css;
     } else if (use.Sass) {
       html += Sass.compile(content.style);
     } else {
