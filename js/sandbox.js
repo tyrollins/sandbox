@@ -210,11 +210,11 @@
       var count = this.count();
       var win = $(".windowGroup .column-33");
       if (count === 3 || count === 0) {
-        win.css("width", "33%");
+        win.css("width", "33.333%");
       } else if (count === 2) {
-        win.css("width", "49.5%");
+        win.css("width", "50%");
       } else if (count === 1) {
-        win.css("width", "99%");
+        win.css("width", "100%");
       }
     },
     // On toggling an editor pane resize remaining and toggle button class
