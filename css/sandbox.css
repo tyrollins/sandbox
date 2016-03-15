@@ -57,6 +57,7 @@ body {
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
+  border-top: 2px solid #222;
 }
 
 .window:hover {
@@ -395,7 +396,7 @@ pre {
 /* FOOTER */
 
 #dynamic_footer {
-  border-top: 1px solid #FAD000;
+  border-top: 2px solid #528bff;
   position: absolute;
   height: 4vh;
   bottom: 0px;
@@ -428,7 +429,7 @@ pre {
 }
 
 #featured {
-  border-top: 1px solid #FAD000;
+  border-top: 2px solid #528bff;
   padding-top: 25px;
   padding-left: 15px;
   padding-right: 15px;
@@ -445,7 +446,7 @@ pre {
 
 
 #overlay {
-  background: #FFE885;
+  background: #ccc;
   opacity: 0.8;
   position: absolute;
   top: 0;

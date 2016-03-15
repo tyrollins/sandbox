@@ -260,7 +260,7 @@
       (function loadSass() {
         var xmlHttp = null;
         xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "http://rawgit.com/medialize/sass.js/master/dist/sass.min.js", false);
+        xmlHttp.open("GET", "http://rawgit.com/medialize/sass.js/master/dist/sass.js", false);
         xmlHttp.send(null);
         var sass = document.createElement("script");
         sass.id = "sass";
