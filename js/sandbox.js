@@ -19,8 +19,8 @@
   // End Globals
 
   // Check if a new appcache is available on page load. If so, ask to load it.
-  window.addEventListener("load", function (e) {
-    window.applicationCache.addEventListener("updateready", function (e) {
+  window.addEventListener("load", function(e) {
+    window.applicationCache.addEventListener("updateready", function(e) {
       if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
         // Browser downloaded a new app cache.
         if (confirm("A new version of this site is available. Load it?")) {
@@ -90,7 +90,7 @@
           "body element. <script> tags ARE allowed, though\n" +
           "they're best placed at the end of your HTML -->\n");
         htmlField.clearSelection();
-        $(".html").one("touchstart click", function () {
+        $(".html").one("touchstart click", function() {
           htmlField.setValue("");
         });
       }
@@ -122,17 +122,17 @@
     jqconsole.SetIndentWidth(2);
 
     // Abort prompt on Ctrl+C.
-    jqconsole.RegisterShortcut("C", function () {
+    jqconsole.RegisterShortcut("C", function() {
       jqconsole.AbortPrompt();
       handler();
     });
     // Move to line start Ctrl+A.
-    jqconsole.RegisterShortcut("A", function () {
+    jqconsole.RegisterShortcut("A", function() {
       jqconsole.MoveToStart();
       handler();
     });
     // Move to line end Ctrl+E.
-    jqconsole.RegisterShortcut("E", function () {
+    jqconsole.RegisterShortcut("E", function() {
       jqconsole.MoveToEnd();
       handler();
     });
@@ -141,7 +141,7 @@
     jqconsole.RegisterMatching("[", "]", "bracket");
 
     // console.log implementation
-    window.log = function (message) {
+    window.log = function(message) {
       var data = "";
       if (typeof message == "object") {
         data = JSON && JSON.stringify ? JSON.stringify(message) : String(message);
@@ -152,7 +152,7 @@
     };
 
     // Handle a command.
-    var handler = function (command) {
+    var handler = function(command) {
       if (command) {
         if (command.search("console.log" !== -1)) {
           command = command.replace("console.log", "log");
@@ -163,7 +163,7 @@
           jqconsole.Write("ReferenceError: " + e.message + "\n");
         }
       }
-      jqconsole.Prompt(true, handler, function (command) {
+      jqconsole.Prompt(true, handler, function(command) {
         // Continue line if can't compile the command.
         try {
           new Function(command);
@@ -183,30 +183,30 @@
   // END jqconsole
 
   // Toggle Text Areas from Displaying
-  $(".togglePane").on("click", function () {
+  $(".togglePane").on("click", function() {
     panes.close(this);
   });
-  $("#consoleToggle").on("click", function () {
+  $("#consoleToggle").on("click", function() {
     $(this).toggleClass("btn-active");
     $(".console").toggle();
   });
-  $("#previewToggle, #iframeClose").on("click", function () {
+  $("#previewToggle, #iframeClose").on("click", function() {
     $("#previewToggle").toggleClass("btn-active");
     $("html").toggleClass("modal-open");
   });
 
   var panes = {
     // Return the number of editor panes displayed
-    count: function () {
+    count: function() {
       var count = 3;
       var items = $(".windowGroup .column-33");
-      items.each(function (el) {
+      items.each(function(el) {
         if ($(items[el]).css("display") === "none") count -= 1;
       });
       return count;
     },
     // Resize panes based upon number currently toggled ON
-    resize: function () {
+    resize: function() {
       var count = this.count();
       var win = $(".windowGroup .column-33");
       if (count === 3 || count === 0) {
@@ -218,7 +218,7 @@
       }
     },
     // On toggling an editor pane resize remaining and toggle button class
-    close: function (el) {
+    close: function(el) {
       var name = el.dataset.editor;
       var count = this.count();
       if (count > 1 || $(el).hasClass("btn-active")) {
@@ -332,22 +332,22 @@
   }
 
   // Toggle live edit/preview mode. It's sometimes slow or doesn't react well.
-  $("#liveEdit").on("click", function () {
+  $("#liveEdit").on("click", function() {
     use.liveEdit ? use.liveEdit = false : use.liveEdit = true;
     $(this).toggleClass("btn-active");
   });
 
   // Publish output from HTML, CSS, and JS textareas in the iframe below
   // after given keyup delay if "use.liveEdit: true".
-  htmlField.getSession().on("change", function (e) {
+  htmlField.getSession().on("change", function(e) {
     if (use.liveEdit) preview(1000);
   });
-  cssField.getSession().on("change", function (e) {
+  cssField.getSession().on("change", function(e) {
     if (use.liveEdit) preview(2000);
   });
 
   // Update preview window AND js console on click of "Run" button
-  $("#run").on("click", function () {
+  $("#run").on("click", function() {
     preview();
   });
 
@@ -357,7 +357,7 @@
     if (timer) {
       window.clearTimeout(timer);
     }
-    timer = window.setTimeout(function () {
+    timer = window.setTimeout(function() {
       timer = null;
       // pass true as we want the pseudo console.js script
       //console.time('buildOutput'); // start timer for debugging
@@ -371,7 +371,7 @@
 
   // Download HTML/CSS/JS
   // Source: http://thiscouldbebetter.wordpress.com/2012/12/18/loading-editing-and-saving-a-text-file-in-html5-using-javascrip/
-  $("#download").on("click", function () {
+  $("#download").on("click", function() {
 
     function destroyClickedElement(event) {
       document.body.removeChild(event.target);
@@ -402,7 +402,7 @@
   });
 
   // Clear editors with "Clear" button
-  $("#clear").on("click", function () {
+  $("#clear").on("click", function() {
     htmlField.setValue("");
     cssField.setValue("");
     jsField.setValue("");
@@ -412,7 +412,7 @@
   });
 
   // Save current editor panes to localStorage
-  $("#save").on("click", function () {
+  $("#save").on("click", function() {
     var store = {
       html: htmlField.getValue(),
       css: cssField.getValue(),
@@ -422,7 +422,7 @@
   });
 
   // Load into editors from localStorage if exists
-  $("#load").on("click", function () {
+  $("#load").on("click", function() {
     var store;
     if (localStorage.sandbox) {
       store = JSON.parse(localStorage.sandbox);
@@ -520,43 +520,43 @@
               "items": {
                 "chrome": {
                   "name": "Chrome [Default]",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("chrome");
                   }
                 },
                 "dreamweaver": {
                   "name": "Dreamweaver",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("dreamweaver");
                   }
                 },
                 "dawn": {
                   "name": "Dawn",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("dawn");
                   }
                 },
                 "tomorrow": {
                   "name": "Tomorow",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("tomorrow");
                   }
                 },
                 "xcode": {
                   "name": "XCode",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("xcode");
                   }
                 },
                 "kuroir": {
                   "name": "Kuroir",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("kuroir");
                   }
                 },
                 "katzenmilch": {
                   "name": "KatzenMilch",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("katzenmilch");
                   }
                 }
@@ -567,49 +567,49 @@
               "items": {
                 "ambiance": {
                   "name": "Ambiance",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("ambiance");
                   }
                 },
                 "cloudsmidnight": {
                   "name": "Clouds Midight",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("clouds_midnight");
                   }
                 },
                 "idlefingers": {
                   "name": "Idle Fingers",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("idle_fingers");
                   }
                 },
                 "merbivore": {
                   "name": "Merbivore",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("merbivore");
                   }
                 },
                 "merbivoresoft": {
                   "name": "Merbivore Soft",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("merbivore_soft");
                   }
                 },
                 "monokai": {
                   "name": "Monokai",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("monokai");
                   }
                 },
                 "tomorrownight": {
                   "name": "Tomorrow Night",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("tomorrow_night");
                   }
                 },
                 "twilight": {
                   "name": "Twilight",
-                  "callback": function () {
+                  "callback": function() {
                     updateTheme("twilight");
                   }
                 }
@@ -617,7 +617,7 @@
             },
             "default": {
               "name": "Default",
-              "callback": function () {
+              "callback": function() {
                 updateTheme("chrome");
               }
             }
@@ -625,7 +625,7 @@
         }
       },
       events: {
-        show: function (opt) {
+        show: function(opt) {
           // this is the trigger element
           var $this = this;
           // import states from data store IF set. If we don't check this
@@ -634,7 +634,7 @@
             $.contextMenu.setInputValues(opt, $this.data());
           }
         },
-        hide: function (opt) {
+        hide: function(opt) {
           // this is the trigger element
           var $this = this;
           // export states to data store
@@ -648,63 +648,63 @@
   // and update "global" variable "use" in order to build
   // preview window
   // $("input[name*='context-menu-input']").on("click", function() {
-  $(".context-menu-list").on("click", "input[name*='context-menu-input']", function () {
+  $(".context-menu-list").on("click", "input[name*='context-menu-input']", function() {
     var val = $(this).val();
     if (val) {
       switch (val) {
         // CSS Pre-Processor
-      case "plaincss":
-        $("#cssLabel").text("CSS");
-        cssField.getSession().setMode("ace/mode/css");
-        use.Autoprefixer = false;
-        use.Less = false;
-        use.Sass = false;
-        break;
-      case "autoprefixer":
-        $("#cssLabel").text("CSS");
-        cssField.getSession().setMode("ace/mode/css");
-        use.Autoprefixer = true;
-        use.Less = false;
-        use.Sass = false;
-        break;
-      case "less":
-        $("#cssLabel").text("LESS");
-        cssField.getSession().setMode("ace/mode/less");
-        use.Less = true;
-        use.Sass = false;
-        use.Autoprefixer = false;
-        break;
-      case "sass":
-        $("#cssLabel").text("SASS");
-        cssField.getSession().setMode("ace/mode/sass");
-        use.Sass = true;
-        use.Less = false;
-        use.Autoprefixer = false;
-        break;
-        // CSS Frameworks
-      case "none":
-        use.Bootstrap = false;
-        use.Foundation = false;
-        break;
-      case "bootstrap":
-        use.Bootstrap = true;
-        use.Foundation = false;
-        break;
-      case "foundation":
-        use.Foundation = true;
-        use.Bootstrap = false;
-        break;
+        case "plaincss":
+          $("#cssLabel").text("CSS");
+          cssField.getSession().setMode("ace/mode/css");
+          use.Autoprefixer = false;
+          use.Less = false;
+          use.Sass = false;
+          break;
+        case "autoprefixer":
+          $("#cssLabel").text("CSS");
+          cssField.getSession().setMode("ace/mode/css");
+          use.Autoprefixer = true;
+          use.Less = false;
+          use.Sass = false;
+          break;
+        case "less":
+          $("#cssLabel").text("LESS");
+          cssField.getSession().setMode("ace/mode/less");
+          use.Less = true;
+          use.Sass = false;
+          use.Autoprefixer = false;
+          break;
+        case "sass":
+          $("#cssLabel").text("SASS");
+          cssField.getSession().setMode("ace/mode/sass");
+          use.Sass = true;
+          use.Less = false;
+          use.Autoprefixer = false;
+          break;
+          // CSS Frameworks
+        case "none":
+          use.Bootstrap = false;
+          use.Foundation = false;
+          break;
+        case "bootstrap":
+          use.Bootstrap = true;
+          use.Foundation = false;
+          break;
+        case "foundation":
+          use.Foundation = true;
+          use.Bootstrap = false;
+          break;
       }
     } else {
       var checked = $(this).is(":checked");
       var item = event.target.name; //$(this)[0].name;
       switch (item) {
-      case "context-menu-input-modernizr":
-        use.Modernizr = checked;
-        break;
-      case "context-menu-input-normalize":
-        use.Normalize = checked;
-        break;
+        case "context-menu-input-modernizr":
+          use.Modernizr = checked;
+          break;
+        case "context-menu-input-normalize":
+          use.Normalize = checked;
+          break;
       }
     }
   });
@@ -720,7 +720,7 @@
   }
 
   // Detect a user leaving a page and display a message
-  window.onbeforeunload = function (e) {
+  window.onbeforeunload = function(e) {
 
     // Save current buffers into sessionStorage
     sessionStorage.setItem("html", htmlField.getValue());
@@ -741,23 +741,24 @@
     return message;
   };
 
+  // Fancy Footer
   $('.oi').click(function() {
-  var overlay = $('#overlay');
-  var featured = $('#featured');
-  if ($(this).hasClass('active')) {
-    $(this).removeClass('active');
-    overlay.fadeOut(300);
-    featured.animate({
-      'height': '0px'
-    }, 300);
-  } else {
-    $(this).addClass('active');
-    overlay.fadeIn(300);
-    featured.animate({
-      'height': '360px'
-    }, 300);
-  }
-});
+    var overlay = $('#overlay');
+    var featured = $('#featured');
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      overlay.fadeOut(300);
+      featured.animate({
+        'height': '0px'
+      }, 300);
+    } else {
+      $(this).addClass('active');
+      overlay.fadeIn(300);
+      featured.animate({
+        'height': '360px'
+      }, 300);
+    }
+  });
 
 })();
 
@@ -769,69 +770,69 @@
  * Licensed under the MIT License (http://creativecommons.org/licenses/MIT/)
  *
  **/
-(function($){
-    $.responsiveIframes = function(el, options){
-        var self = this;
+(function($) {
+  $.responsiveIframes = function(el, options) {
+    var self = this;
 
-        // Access to jQuery and DOM versions of element
-        self.$el = $(el);
-        self.el = el;
+    // Access to jQuery and DOM versions of element
+    self.$el = $(el);
+    self.el = el;
 
-        // Add a reverse reference to the DOM object
-        self.$el.data("responsiveIframes", self);
+    // Add a reverse reference to the DOM object
+    self.$el.data("responsiveIframes", self);
 
-        self.init = function () {
-            self.options = $.extend({}, $.responsiveIframes.defaultOptions, options);
+    self.init = function() {
+      self.options = $.extend({}, $.responsiveIframes.defaultOptions, options);
 
-            // wrap iframe
-            var iframeSrc = self.$el.find('iframe').wrap('<div class="iframe-content" />').attr('src');
+      // wrap iframe
+      var iframeSrc = self.$el.find('iframe').wrap('<div class="iframe-content" />').attr('src');
 
-            //generate header
-            var header = '<div class="iframe-header">' +
-                              '<a href="'+ iframeSrc +'" class="iframe-trigger">'+ self.options.openMessage +'</a>' +
-                          '</div>';
+      //generate header
+      var header = '<div class="iframe-header">' +
+        '<a href="' + iframeSrc + '" class="iframe-trigger">' + self.options.openMessage + '</a>' +
+        '</div>';
 
-            var trigger = self.$el.prepend(header).find('.iframe-trigger');
+      var trigger = self.$el.prepend(header).find('.iframe-trigger');
 
-            // click event
-            $(trigger).click(function (e) {
-                e.preventDefault();
+      // click event
+      $(trigger).click(function(e) {
+        e.preventDefault();
 
-                var $this = $(this),
-                    $html = $('html'),
-                    isFullScreen = $html.hasClass("iframe-full-screen"),
-                    message = isFullScreen ? self.options.openMessage : self.options.closeMessage;
+        var $this = $(this),
+          $html = $('html'),
+          isFullScreen = $html.hasClass("iframe-full-screen"),
+          message = isFullScreen ? self.options.openMessage : self.options.closeMessage;
 
-                $this.text(message);
+        $this.text(message);
 
-                if (isFullScreen) {
-					self.$el.removeClass("iframe-active");
-                    $html.removeClass("iframe-full-screen");
-                    setTimeout(function () {
-                        $(window).scrollTop($this.data('iframe-scroll-position'));
-                    }, 1);
-                } else {
-                    $this.data('iframe-scroll-position', $(window).scrollTop());
-					self.$el.addClass("iframe-active");
-                    $html.addClass("iframe-full-screen");
-                }
+        if (isFullScreen) {
+          self.$el.removeClass("iframe-active");
+          $html.removeClass("iframe-full-screen");
+          setTimeout(function() {
+            $(window).scrollTop($this.data('iframe-scroll-position'));
+          }, 1);
+        } else {
+          $this.data('iframe-scroll-position', $(window).scrollTop());
+          self.$el.addClass("iframe-active");
+          $html.addClass("iframe-full-screen");
+        }
 
-            });
-        };
-
-        // Run initializer
-        self.init();
+      });
     };
 
-    $.responsiveIframes.defaultOptions = {
-        openMessage: "Full screen",
-        closeMessage: "Close"
-    };
+    // Run initializer
+    self.init();
+  };
 
-    $.fn.responsiveIframes = function(options){
-        return this.each(function(){
-            (new $.responsiveIframes(this, options));
-        });
-    };
+  $.responsiveIframes.defaultOptions = {
+    openMessage: "Full screen",
+    closeMessage: "Close"
+  };
+
+  $.fn.responsiveIframes = function(options) {
+    return this.each(function() {
+      (new $.responsiveIframes(this, options));
+    });
+  };
 
 })(jQuery);

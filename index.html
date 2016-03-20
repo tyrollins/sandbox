@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
     <title>Sandbox - Web Editor</title>
-    <link rel="stylesheet" href="/open-iconic/font/css/open-iconic.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/sandbox.css">
     <link rel="stylesheet" href="css/contextMenu.css">
@@ -21,19 +21,19 @@
         <div class="column-33">
           <div class="window html">
             <pre id="html"></pre>
-            <span class="windowLabel" id="htmlLabel">HTML</span>
+            <span class="windowLabel" id="htmlLabel"><span class="ion-ios-gear"></span> HTML</span>
           </div>
         </div>
         <div class="column-33">
           <div class="window css">
             <pre id="css"></pre>
-            <span class="windowLabel" id="cssLabel">CSS</span>
+            <span class="windowLabel" id="cssLabel"><span class="ion-ios-gear"></span> CSS</span>
           </div>
         </div>
         <div class="column-33">
           <div class="window js">
             <pre id="js"></pre>
-            <span class="windowLabel" id="jsLabel">JS/jQuery 2.x</span>
+            <span class="windowLabel" id="jsLabel"><span class="ion-ios-gear"></span> JS/jQuery 2.x</span>
           </div>
         </div>
       </div>
@@ -43,17 +43,17 @@
 
             <div class="toggleGroup">
             <ul class="footer-list">
-              <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML">HTML</li>
-              <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS">CSS</li>
-              <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS">JavaScript</li>
+              <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#">HTML</a></li>
+              <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#">CSS</a></li>
+              <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#">JS</a></li>
               <!-- <li id="consoleToggle" title="Toggle JavaScript Console">Console</li> -->
-              <li id="liveEdit" title="Toggle Live Edit Mode">LiveEdit</li>
-              <li id="previewToggle" title="Enlarge Preview">Preview</li>
-              <li id="clear" title="Click to clear all panes">Clear</li>
-              <li id="download" title="Download to computer">Download</li>
-              <li id="save" title="Save to localStorage">Save</li>
-              <li id="load" title="Load from localStorage">Load</li>
-              <li id="run" title="Run...">Run</li>
+              <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#">Live Edit</a></li>
+              <!-- <li id="previewToggle" title="Enlarge Preview">Preview</li> -->
+              <li id="clear" title="Click to clear all panes"><a href="#">Clear</a></li>
+              <li id="download" title="Download to computer"><a href="#">Download</a></li>
+              <li id="save" title="Save to localStorage"><a href="#">Save</a></li>
+              <li id="load" title="Load from localStorage"><a href="#">Load</a></li>
+              <li id="run" title="Run..."><a href="#">Run</a></li>
               <li><span class="oi" data-glyph="chevron-top">h</span></li>
             </ul>
             </div>
