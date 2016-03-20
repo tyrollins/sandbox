@@ -401,19 +401,18 @@ pre {
 #dynamic_footer {
   border-top: 2px solid #528bff;
   position: absolute;
-  height: 4vh;
+  height: 5vh;
   bottom: 0px;
   left: 0px;
   width: 100%;
-  padding-left: 25px;
-  padding-right: 25px;
-  box-sizing: border-box;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   z-index: 99;
   background: #fff;
 }
 #dynamic_footer #copyright {
   color: #333;
-  font-weight: 600;
+  font-weight: 500;
   float: left;
   width: 100%;
 }
@@ -471,4 +470,36 @@ pre {
 }
 .footer-list li {
   padding-left: 1rem;
+}
+.code-icon {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.code-icon:hover {
+  color: #1fbad6;
+}
+.nav-icon {
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.nav-icon:hover {
+  color: #1fbad6;
+}
+li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 300;
+  cursor: pointer;
+}
+li a:hover {
+  color: #1fbad6;
+}
+.nav-left {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  margin-left: 0.5rem;
 }

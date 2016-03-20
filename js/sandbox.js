@@ -742,7 +742,7 @@
   };
 
   // Fancy Footer
-  $('.oi').click(function() {
+  $('.oi[data-glyph=terminal]').click(function() {
     var overlay = $('#overlay');
     var featured = $('#featured');
     if ($(this).hasClass('active')) {
@@ -755,7 +755,7 @@
       $(this).addClass('active');
       overlay.fadeIn(300);
       featured.animate({
-        'height': '360px'
+        'height': '40vh'
       }, 300);
     }
   });

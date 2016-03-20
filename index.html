@@ -5,7 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
     <title>Sandbox - Web Editor</title>
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/sandbox.css">
     <link rel="stylesheet" href="css/contextMenu.css">
@@ -21,19 +22,19 @@
         <div class="column-33">
           <div class="window html">
             <pre id="html"></pre>
-            <span class="windowLabel" id="htmlLabel"><span class="ion-ios-gear"></span> HTML</span>
+            <span class="windowLabel" id="htmlLabel"><span class="oi" data-glyph="cog"></span></span>
           </div>
         </div>
         <div class="column-33">
           <div class="window css">
             <pre id="css"></pre>
-            <span class="windowLabel" id="cssLabel"><span class="ion-ios-gear"></span> CSS</span>
+            <span class="windowLabel" id="cssLabel"><span class="oi" data-glyph="cog"></span></span>
           </div>
         </div>
         <div class="column-33">
           <div class="window js">
             <pre id="js"></pre>
-            <span class="windowLabel" id="jsLabel"><span class="ion-ios-gear"></span> JS/jQuery 2.x</span>
+            <span class="windowLabel" id="jsLabel"><span class="oi" data-glyph="cog"></span></span>
           </div>
         </div>
       </div>
@@ -47,14 +48,14 @@
               <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#">CSS</a></li>
               <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#">JS</a></li>
               <!-- <li id="consoleToggle" title="Toggle JavaScript Console">Console</li> -->
-              <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#">Live Edit</a></li>
+              <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#"> Live Edit</a></li>
               <!-- <li id="previewToggle" title="Enlarge Preview">Preview</li> -->
-              <li id="clear" title="Click to clear all panes"><a href="#">Clear</a></li>
-              <li id="download" title="Download to computer"><a href="#">Download</a></li>
-              <li id="save" title="Save to localStorage"><a href="#">Save</a></li>
-              <li id="load" title="Load from localStorage"><a href="#">Load</a></li>
-              <li id="run" title="Run..."><a href="#">Run</a></li>
-              <li><span class="oi" data-glyph="chevron-top">h</span></li>
+              <li id="clear" title="Click to clear all panes"><a href="#"> Clear</a></li>
+              <li id="download" title="Download to computer"><a href="#"> Download</a></li>
+              <li id="save" title="Save to localStorage"><a href="#"> Save</a></li>
+              <li id="load" title="Load from localStorage"><a href="#"> Load</a></li>
+              <li id="run" title="Run..."><a href="#"> Run</a></li>
+              <li><span class="oi nav-icon nav-left" data-glyph="terminal"></span></li>
             </ul>
             </div>
         </div>
