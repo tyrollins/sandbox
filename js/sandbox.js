@@ -571,10 +571,10 @@
                     updateTheme("ambiance");
                   }
                 },
-                "cloudsmidnight": {
-                  "name": "Clouds Midight",
+                "spacegray": {
+                  "name": "Spacegray",
                   "callback": function() {
-                    updateTheme("clouds_midnight");
+                    updateTheme("spacegray");
                   }
                 },
                 "idlefingers": {

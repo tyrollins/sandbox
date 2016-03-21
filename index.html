@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
     <title>Sandbox - Web Editor</title>
-    <!-- <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/sandbox.css">
@@ -44,12 +44,10 @@
 
             <div class="toggleGroup">
             <ul class="footer-list">
-              <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#">HTML</a></li>
-              <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#">CSS</a></li>
-              <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#">JS</a></li>
-              <!-- <li id="consoleToggle" title="Toggle JavaScript Console">Console</li> -->
+              <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span class="ion-social-html5"></span></a></li>
+              <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="ion-social-css3"></span></a></li>
+              <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class="ion-social-javascript"></span></a></li>
               <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#"><span class="oi" data-glyph="aperture"></span>Live Edit</a></li>
-              <!-- <li id="previewToggle" title="Enlarge Preview">Preview</li> -->
               <li id="clear" title="Click to clear all panes"><a href="#"><span class="oi" data-glyph="trash"></span>Clear</a></li>
               <li id="download" title="Download to computer"><a href="#"><span class="oi" data-glyph="cloud-download"></span>Download</a></li>
               <li id="save" title="Save to localStorage"><a href="#"><span class="oi" data-glyph="star"></span>Save</a></li>
@@ -61,7 +59,7 @@
         </div>
       </div>
       <div id="featured">
-        <h1>You might also like...</h1>
+        <h1>JS Console</h1>
         <div class="row console">
           <pre id="console"></pre>
           <span class="windowLabel" id="consoleLabel">Console</span>

@@ -408,10 +408,10 @@ pre {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   z-index: 99;
-  background: #fff;
+  background: #333;
 }
 #dynamic_footer #copyright {
-  color: #333;
+  color: #fff;
   font-weight: 500;
   float: left;
   width: 100%;
@@ -466,13 +466,16 @@ pre {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   list-style: none;
-  margin: 0;
+  margin-top: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
 }
 .footer-list li {
   padding-left: 1rem;
 }
 .code-icon {
-  color: #333;
+  color: #fff;
   text-decoration: none;
   font-size: 1.5rem;
   cursor: pointer;
@@ -481,7 +484,7 @@ pre {
   color: #1fbad6;
 }
 .nav-icon {
-  color: #333;
+  color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -490,9 +493,10 @@ pre {
 }
 li a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
   font-weight: 300;
   cursor: pointer;
+  padding-top: 1rem;
 }
 li a:hover {
   color: #1fbad6;
