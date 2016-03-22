@@ -755,7 +755,7 @@
       $(this).addClass('active');
       overlay.fadeIn(300);
       featured.animate({
-        'height': '40vh'
+        'height': '25rem'
       }, 300);
     }
   });

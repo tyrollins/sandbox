@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html manifest="sandbox.appcache">
 
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
-    <title>Sandbox - Web Editor</title>
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/sandbox.css">
-    <link rel="stylesheet" href="css/contextMenu.css">
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+  <title>Sandbox - Web Editor</title>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/sandbox.css">
+  <link rel="stylesheet" href="css/contextMenu.css">
+</head>
 
-  <body>
-    <section>
-      <div class="iframe">
-        <iframe id="iframe" name="sandbox" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true"></iframe>
-      </div>
+<body>
+  <section>
+    <div class="iframe">
+      <iframe id="iframe" name="sandbox" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms" allowtransparency="true"></iframe>
+    </div>
 
-      <div class="row windowGroup">
-        <div class="column-33">
-          <div class="window html">
-            <pre id="html"></pre>
-            <span class="windowLabel" id="htmlLabel"><span class="oi" data-glyph="cog"></span></span>
-          </div>
-        </div>
-        <div class="column-33">
-          <div class="window css">
-            <pre id="css"></pre>
-            <span class="windowLabel" id="cssLabel"><span class="oi" data-glyph="cog"></span></span>
-          </div>
-        </div>
-        <div class="column-33">
-          <div class="window js">
-            <pre id="js"></pre>
-            <span class="windowLabel" id="jsLabel"><span class="oi" data-glyph="cog"></span></span>
-          </div>
+    <div class="row windowGroup">
+      <div class="column-33">
+        <div class="window html">
+          <pre id="html"></pre>
+          <span class="windowLabel" id="htmlLabel"><span class="oi" data-glyph="cog"></span></span>
         </div>
       </div>
+      <div class="column-33">
+        <div class="window css">
+          <pre id="css"></pre>
+          <span class="windowLabel" id="cssLabel"><span class="oi" data-glyph="cog"></span></span>
+        </div>
+      </div>
+      <div class="column-33">
+        <div class="window js">
+          <pre id="js"></pre>
+          <span class="windowLabel" id="jsLabel"><span class="oi" data-glyph="cog"></span></span>
+        </div>
+      </div>
+    </div>
 
-      <div id="dynamic_footer">
-        <div id="copyright">
+    <div id="dynamic_footer">
+      <div id="copyright">
 
-            <div class="toggleGroup">
-            <ul class="footer-list">
-              <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span class="ion-social-html5"></span></a></li>
-              <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="ion-social-css3"></span></a></li>
-              <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class="ion-social-javascript"></span></a></li>
-              <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#"><span class="oi" data-glyph="aperture"></span>Live Edit</a></li>
-              <li id="clear" title="Click to clear all panes"><a href="#"><span class="oi" data-glyph="trash"></span>Clear</a></li>
-              <li id="download" title="Download to computer"><a href="#"><span class="oi" data-glyph="cloud-download"></span>Download</a></li>
-              <li id="save" title="Save to localStorage"><a href="#"><span class="oi" data-glyph="star"></span>Save</a></li>
-              <li id="load" title="Load from localStorage"><a href="#"><span class="oi" data-glyph="loop"></span>Load</a></li>
-              <li id="run" title="Run..."><a href="#"><span class="oi" data-glyph="media-play"></span>Run</a></li>
-              <li><span class="oi nav-icon nav-left" data-glyph="terminal"></span></li>
-            </ul>
-            </div>
+        <div class="toggleGroup">
+          <ul class="footer-list">
+            <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span class="ion-social-html5 code-icon"></span></a></li>
+            <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="ion-social-css3 code-icon"></span></a></li>
+            <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class="ion-social-javascript code-icon"></span></a></li>
+            <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#"><span class="oi" data-glyph="aperture"></span> Live Edit</a></li>
+            <li id="clear" title="Click to clear all panes"><a href="#"><span class="oi" data-glyph="trash"></span> Clear</a></li>
+            <li id="download" title="Download to computer"><a href="#"><span class="oi" data-glyph="cloud-download"></span> Download</a></li>
+            <li id="save" title="Save to localStorage"><a href="#"><span class="oi" data-glyph="star"></span> Save</a></li>
+            <li id="load" title="Load from localStorage"><a href="#"><span class="oi" data-glyph="loop"></span> Load</a></li>
+            <li id="run" title="Run..."><a href="#"><span class="oi" data-glyph="media-play"></span> Run</a></li>
+            <li><span class="oi nav-icon nav-left" data-glyph="terminal"></span></li>
+          </ul>
         </div>
       </div>
-      <div id="featured">
-        <h1>JS Console</h1>
-        <div class="row console">
-          <pre id="console"></pre>
-          <span class="windowLabel" id="consoleLabel">Console</span>
-        </div>
+    </div>
+    <div id="featured">
+      <div class="row console">
+        <pre id="console"></pre>
+        <span class="windowLabel" id="consoleLabel">Console</span>
       </div>
-      <div id="overlay">
-      </div>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script src="js/ace/ace.js"></script>
-    <script src="js/ace/ext-emmet.js"></script>
-    <script src="js/ace/emmet.js"></script>
-    <script src="js/jquery.ui.position.min.js"></script>
-    <script src="js/contextMenu.js"></script>
-    <script src="js/jqconsole.min.js"></script>
-    <script src="js/sandbox.js"></script>
-    <script>$('.iframe').responsiveIframes();</script>
-  </body>
+      <h5>JS Console</h5>
+    </div>
+    <div id="overlay">
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script src="js/ace/ace.js"></script>
+  <script src="js/ace/ext-emmet.js"></script>
+  <script src="js/ace/emmet.js"></script>
+  <script src="js/jquery.ui.position.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/jqconsole.min.js"></script>
+  <script src="js/sandbox.js"></script>
+  <script>
+    $('.iframe').responsiveIframes();
+  </script>
+</body>
 
 </html>

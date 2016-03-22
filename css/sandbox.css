@@ -117,14 +117,15 @@ pre {
 .console {
   width: 100%;
   margin: 0.75em 0 0 0;
-  height: 100px;
-  border: 1px solid #cdcdcd;
+  height: 12.5rem;
+  border: 1px solid #15181d;
   box-shadow: inset rgba(0,0,0,.05) 0 3px 10px;
   border-radius: 3px;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   position: relative;
+  background: #1c1f26;
 }
 
 /* jqconsole */
@@ -399,35 +400,22 @@ pre {
 /* FOOTER */
 
 #dynamic_footer {
-  border-top: 2px solid #528bff;
+  border-top: 2px solid #15181d;
   position: absolute;
-  height: 5vh;
+  height: 3rem;
   bottom: 0px;
   left: 0px;
   width: 100%;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   z-index: 99;
-  background: #333;
+  background: #232830;
 }
 #dynamic_footer #copyright {
-  color: #fff;
+  color: #65737f;
   font-weight: 500;
   float: left;
   width: 100%;
-}
-#dynamic_footer #copyright .fa-angle-up {
-  float: right;
-  top: 19px;
-  position: relative;
-  font-size: 10px;
-  cursor: pointer;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-}
-#dynamic_footer #copyright .fa-angle-up.active {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
 }
 
 #featured {
@@ -442,7 +430,7 @@ pre {
   width: 100%;
   bottom: 0;
   z-index: 90;
-  background: #fff;
+  background: #272b35;
   box-shadow: #333333 0px 0px 29px -6px;
 }
 
@@ -475,31 +463,31 @@ pre {
   padding-left: 1rem;
 }
 .code-icon {
-  color: #fff;
+  color: #65737f;
   text-decoration: none;
   font-size: 1.5rem;
   cursor: pointer;
 }
 .code-icon:hover {
-  color: #1fbad6;
+  color: #f3f3f3;
 }
 .nav-icon {
-  color: #fff;
+  color: #65737f;
   font-size: 1.5rem;
   cursor: pointer;
 }
 .nav-icon:hover {
-  color: #1fbad6;
+  color: #f3f3f3;
 }
 li a {
   text-decoration: none;
-  color: #fff;
+  color: #65737f;
   font-weight: 300;
   cursor: pointer;
   padding-top: 1rem;
 }
 li a:hover {
-  color: #1fbad6;
+  color: #f3f3f3;
 }
 .nav-left {
   bottom: 0;
