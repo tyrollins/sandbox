@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
   <title>Sandbox - Web Editor</title>
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/fluid.css">
   <link rel="stylesheet" href="css/sandbox.css">
   <link rel="stylesheet" href="css/contextMenu.css">
+  <link rel="stylesheet" href="css/tooltip-theme-arrows.css">
+  <link rel="stylesheet" href="css/drop-theme-arrows.css" />
 </head>
 
 <body>
@@ -19,19 +21,19 @@
     </div>
 
     <div class="row windowGroup">
-      <div class="column-33">
+      <div class="flexible column ml0">
         <div class="window html">
           <pre id="html"></pre>
           <span class="windowLabel" id="htmlLabel"><span class="oi" data-glyph="cog"></span></span>
         </div>
       </div>
-      <div class="column-33">
+      <div class="flexible column ml0">
         <div class="window css">
           <pre id="css"></pre>
           <span class="windowLabel" id="cssLabel"><span class="oi" data-glyph="cog"></span></span>
         </div>
       </div>
-      <div class="column-33">
+      <div class="flexible column ml0">
         <div class="window js">
           <pre id="js"></pre>
           <span class="windowLabel" id="jsLabel"><span class="oi" data-glyph="cog"></span></span>
@@ -40,23 +42,22 @@
     </div>
 
     <div id="dynamic_footer">
-      <div id="copyright">
-
         <div class="toggleGroup">
-          <ul class="footer-list">
-            <li class="togglePane" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span class="ion-social-html5 code-icon"></span></a></li>
-            <li class="togglePane" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="ion-social-css3 code-icon"></span></a></li>
-            <li class="togglePane" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class="ion-social-javascript code-icon"></span></a></li>
-            <li id="liveEdit" title="Toggle Live Edit Mode"><a href="#"><span class="oi" data-glyph="aperture"></span> Live Edit</a></li>
-            <li id="clear" title="Click to clear all panes"><a href="#"><span class="oi" data-glyph="trash"></span> Clear</a></li>
-            <li id="download" title="Download to computer"><a href="#"><span class="oi" data-glyph="cloud-download"></span> Download</a></li>
-            <li id="save" title="Save to localStorage"><a href="#"><span class="oi" data-glyph="star"></span> Save</a></li>
-            <li id="load" title="Load from localStorage"><a href="#"><span class="oi" data-glyph="loop"></span> Load</a></li>
-            <li id="run" title="Run..."><a href="#"><span class="oi" data-glyph="media-play"></span> Run</a></li>
-            <li><span class="oi nav-icon nav-left" data-glyph="terminal"></span></li>
+          <ul class=" mb0 footer-list flex items-center justify-start list-style-none flex-wrap ">
+            <li class="togglePane mb0" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span data-tooltip="Weeeeee" data-tooltip-position="top center" class="ml4 px2 mr4 inline-block html-svg"></span></a></li>
+            <li class="togglePane mb0" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="px4 mr2 inline-block css-svg"></span></a></li>
+            <li class="togglePane mb0" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class=" px4 mr2 inline-block js-svg"></span></a></li>
+            <span class="link-list-footer flex flex-wrap content-center right absolute mr2">
+            <li id="liveEdit" class="block mb0 self-end px3" title="Toggle Live Edit Mode"><a href="#"><span class="oi" data-glyph="aperture"></span> Live Edit</a></li>
+            <li id="clear " class="block mb0 px3" title="Click to clear all panes"><a href="#"><span class="oi" data-glyph="trash"></span> Clear</a></li>
+            <li id="download " class="block mb0 px3" title="Download to computer"><a href="#"><span class="oi" data-glyph="cloud-download"></span> Download</a></li>
+            <li id="save" class="block mb0 px3" title="Save to localStorage"><a href="#"><span class="oi" data-glyph="star"></span> Save</a></li>
+            <li id="load" class="block mb0 px3" title="Load from localStorage"><a href="#"><span class="oi" data-glyph="loop"></span> Load</a></li>
+            <li id="run" class="block mb0 px3" title="Run..."><a href="#"><span class="oi" data-glyph="media-play"></span> Run</a></li>
+            <li><span class="oi block  mb0 nav-icon nav-left" data-glyph="terminal"></span></li>
+          </span>
           </ul>
         </div>
-      </div>
     </div>
     <div id="featured">
       <div class="row console">
@@ -76,6 +77,9 @@
   <script src="js/contextMenu.js"></script>
   <script src="js/jqconsole.min.js"></script>
   <script src="js/sandbox.js"></script>
+  <script src="js/tether.js"></script>
+<script src="js/drop.js"></script>
+<script src="js/tooltip.js"></script>
   <script>
     $('.iframe').responsiveIframes();
   </script>

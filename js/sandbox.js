@@ -199,7 +199,7 @@
     // Return the number of editor panes displayed
     count: function() {
       var count = 3;
-      var items = $(".windowGroup .column-33");
+      var items = $(".windowGroup .flexible.column");
       items.each(function(el) {
         if ($(items[el]).css("display") === "none") count -= 1;
       });
@@ -208,7 +208,7 @@
     // Resize panes based upon number currently toggled ON
     resize: function() {
       var count = this.count();
-      var win = $(".windowGroup .column-33");
+      var win = $(".windowGroup .flexible.column");
       if (count === 3 || count === 0) {
         win.css("width", "33.333%");
       } else if (count === 2) {
