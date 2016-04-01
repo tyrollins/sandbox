@@ -10,8 +10,6 @@
   <link rel="stylesheet" href="css/fluid.css">
   <link rel="stylesheet" href="css/sandbox.css">
   <link rel="stylesheet" href="css/contextMenu.css">
-  <link rel="stylesheet" href="css/tooltip-theme-arrows.css">
-  <link rel="stylesheet" href="css/drop-theme-arrows.css" />
 </head>
 
 <body>
@@ -42,22 +40,24 @@
     </div>
 
     <div id="dynamic_footer">
-        <div class="toggleGroup">
-          <ul class=" mb0 footer-list flex items-center justify-start list-style-none flex-wrap ">
-            <li class="togglePane mb0" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span data-tooltip="Weeeeee" data-tooltip-position="top center" class="ml4 px2 mr4 inline-block html-svg"></span></a></li>
-            <li class="togglePane mb0" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="px4 mr2 inline-block css-svg"></span></a></li>
-            <li class="togglePane mb0" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class=" px4 mr2 inline-block js-svg"></span></a></li>
-            <span class="link-list-footer flex flex-wrap content-center right absolute mr2">
-            <li id="liveEdit" class="block mb0 self-end px3" title="Toggle Live Edit Mode"><a href="#"><span class="oi" data-glyph="aperture"></span> Live Edit</a></li>
-            <li id="clear " class="block mb0 px3" title="Click to clear all panes"><a href="#"><span class="oi" data-glyph="trash"></span> Clear</a></li>
-            <li id="download " class="block mb0 px3" title="Download to computer"><a href="#"><span class="oi" data-glyph="cloud-download"></span> Download</a></li>
-            <li id="save" class="block mb0 px3" title="Save to localStorage"><a href="#"><span class="oi" data-glyph="star"></span> Save</a></li>
-            <li id="load" class="block mb0 px3" title="Load from localStorage"><a href="#"><span class="oi" data-glyph="loop"></span> Load</a></li>
-            <li id="run" class="block mb0 px3" title="Run..."><a href="#"><span class="oi" data-glyph="media-play"></span> Run</a></li>
-            <li><span class="oi block  mb0 nav-icon nav-left" data-glyph="terminal"></span></li>
+      <div class="toggleGroup">
+        <ul class=" mb0 footer-list flex items-center justify-start list-style-none flex-wrap ">
+          <li class="togglePane mb0 mt0" id="consoleToggle" data-editor="console" title="Toggle Console"><a href="#"><span class="py3 px3 block console-svg"></span></a></li>
+          <li class="togglePane mb0" id="htmlToggle" data-editor="html" title="Toggle HTML"><a href="#"><span class="px2 mr3 inline-block html-svg"></span></a></li>
+          <li class="togglePane mb0" id="cssToggle" data-editor="css" title="Toggle CSS"><a href="#"><span class="px2 mr3 inline-block css-svg"></span></a></li>
+          <li class="togglePane mb0" id="jsToggle" data-editor="js" title="Toggle JS"><a href="#"><span class=" px2 mr3 inline-block js-svg"></span></a></li>
+          <span class="link-list-footer flex flex-wrap content-center right absolute mr2">
+            <li id="liveEdit" class="block mb0 self-end px3" title="Toggle Live Edit Mode"><a href="#"><span></span> Live Edit</a>
+          </li>
+          <li id="clear " class="block mb0 px3" title="Click to clear all panes"><a href="#"><span></span> Clear</a></li>
+          <li id="download " class="block mb0 px3" title="Download to computer"><a href="#"><span></span> Download</a></li>
+          <li id="save" class="block mb0 px3" title="Save to localStorage"><a href="#"><span></span> Save</a></li>
+          <li id="load" class="block mb0 px3" title="Load from localStorage"><a href="#"><span></span> Load</a></li>
+          <li id="run" class="block mb0 px3" title="Run..."><a href="#"><span></span> Run</a></li>
+          <li><span>Console</span></li>
           </span>
-          </ul>
-        </div>
+        </ul>
+      </div>
     </div>
     <div id="featured">
       <div class="row console">
@@ -77,9 +77,6 @@
   <script src="js/contextMenu.js"></script>
   <script src="js/jqconsole.min.js"></script>
   <script src="js/sandbox.js"></script>
-  <script src="js/tether.js"></script>
-<script src="js/drop.js"></script>
-<script src="js/tooltip.js"></script>
   <script>
     $('.iframe').responsiveIframes();
   </script>
